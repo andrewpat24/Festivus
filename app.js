@@ -9,31 +9,12 @@ var logger = require('morgan');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
-const db = require('./db/db');
-const artists = require('./db/helperFunctions/artists');
+
 
 var app = express();
 
-//////////////////////////////////////
-// sequelize.testConnection(); 
+const festivals = require('./db/helperFunctions/festivals');
 
-// const artists = require('./db/helperFunctions/artists')
-const newArtist = {
-  name:'name',
-  spotify_profile: 'spotify profile',
-  showtime: 'showtime',
-  profile_picture: 'profile picture',
-  festival_id:2
-}
-
-// artists.addArtist(newArtist);
-
-artists.addArtist(newArtist)
-  .then((res) => {
-    console.log("ArtistID:",res)
-  });
-
-/////////////////////////////////////
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
