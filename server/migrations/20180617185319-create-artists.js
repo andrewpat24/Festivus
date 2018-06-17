@@ -11,14 +11,20 @@ module.exports = {
       name: {
         type: Sequelize.STRING
       },
-      spotifyProfile: {
+      spotify_profile: {
         type: Sequelize.STRING
       },
-      showtimes: {
+      showtime: {
         type: Sequelize.STRING
       },
-      profilePicture: {
+      profile_picture: {
         type: Sequelize.STRING
+      },
+      bio: {
+        type: Sequelize.STRING
+      },
+      festival_id: {
+        type: Sequelize.INTEGER
       },
       createdAt: {
         allowNull: false,

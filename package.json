@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "nodemon node ./bin/www",
-    "initialize-tables":"sequelize db:migrate"
+    "initialize-tables": "sequelize db:migrate"
   },
   "dependencies": {
     "cookie-parser": "~1.4.3",
@@ -18,6 +18,7 @@
     "nodemon": "^1.17.5",
     "pg": "^7.4.3",
     "pg-hstore": "^2.3.2",
+    "pg-promise": "^8.4.4",
     "process-env": "^1.1.0",
     "sequelize": "^4.37.10"
   }

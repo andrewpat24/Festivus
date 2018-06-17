@@ -11,16 +11,16 @@ module.exports = {
       name: {
         type: Sequelize.STRING
       },
-      showUrl: {
+      show_url: {
         type: Sequelize.STRING
       },
       location: {
         type: Sequelize.STRING
       },
-      dateSpan: {
+      date_span: {
         type: Sequelize.STRING
       },
-      artistLineup: {
+      artist_lineup: {
         type: Sequelize.STRING
       },
       logo: {
