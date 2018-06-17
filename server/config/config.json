@@ -1,8 +1,8 @@
 {
   "development": {
-    "username": "root",
+    "username": "andrewpat24",
     "password": null,
-    "database": "database_development",
+    "database": "festivus",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },

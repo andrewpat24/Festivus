@@ -9,9 +9,13 @@ var logger = require('morgan');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
+const sequelize = require('./db/sequelize');
+
 var app = express();
 
-console.log(process.env.DB_USERNAME);
+//////////////////////////////////////
+sequelize.testConnection(); 
+/////////////////////////////////////
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
