@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "nodemon node ./bin/www"
+    "start": "nodemon node ./bin/www",
+    "initialize-tables":"sequelize db:migrate"
   },
   "dependencies": {
     "cookie-parser": "~1.4.3",
