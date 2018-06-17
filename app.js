@@ -10,7 +10,7 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
 const db = require('./db/db');
-const artist = require('./db/helperFunctions/artist');
+const artists = require('./db/helperFunctions/artists');
 
 var app = express();
 
@@ -23,23 +23,16 @@ const newArtist = {
   spotify_profile: 'spotify profile',
   showtime: 'showtime',
   profile_picture: 'profile picture',
-  festival_id:1
+  festival_id:2
 }
 
 // artists.addArtist(newArtist);
 
-db.connect().then(function (obj) {
-  console.log("Connection successful!")
-  obj.done(); // success, release connection;
-})
-.catch(function (error) {
-  console.log("ERROR:", error.message);
-});
-
-artist.addArtist(newArtist)
+artists.addArtist(newArtist)
   .then((res) => {
     console.log("ArtistID:",res)
   });
+
 /////////////////////////////////////
 
 // view engine setup

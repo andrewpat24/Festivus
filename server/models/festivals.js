@@ -5,7 +5,7 @@ module.exports = (sequelize, DataTypes) => {
     show_url: DataTypes.STRING,
     location: DataTypes.STRING,
     date_span: DataTypes.STRING,
-    artist_lineup: DataTypes.STRING,
+    bio: DataTypes.STRING,
     logo: DataTypes.STRING
   }, {});
   festivals.associate = function(models) {
