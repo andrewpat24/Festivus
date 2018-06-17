@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www"
+    "start": "nodemon node ./bin/www"
   },
   "dependencies": {
     "cookie-parser": "~1.4.3",
@@ -13,6 +13,7 @@
     "http-errors": "~1.6.2",
     "less-middleware": "~2.2.1",
     "morgan": "~1.9.0",
+    "nodemon": "^1.17.5",
     "pg": "^7.4.3",
     "pg-hstore": "^2.3.2",
     "sequelize": "^4.37.10"
