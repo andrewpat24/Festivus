@@ -19,6 +19,7 @@ artists.addArtist = (artistObj) => {
             updatedAt: artistObj.updatedAt
         });
 };
+
 // const artists = require('./db/helperFunctions/artists')
 // const newArtist = {
 //   name:'name',

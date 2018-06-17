@@ -15,7 +15,10 @@ var app = express();
 
 const festivals = require('./db/helperFunctions/festivals');
 
-
+festivals.retrieveAllFestivals()
+  .then((festivalList) => {
+    console.log(festivalList);
+  })
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
