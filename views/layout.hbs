@@ -2,9 +2,32 @@
 <html>
   <head>
     <title>{{title}}</title>
+    {{!-- UIKit CSS --}}
+    <link rel='stylesheet' href='/libraries/uikit/css/uikit.css' />
+    <script src='/libraries/uikit/js/uikit-icons.js' ></script>
+    {{!-- UIKit JS --}}
+    <script src='/libraries/uikit/js/uikit.js' ></script>
+    {{!-- Font import --}}
+    <link href="https://fonts.googleapis.com/css?family=Cookie|Dancing+Script|Marck+Script" rel="stylesheet">
+
+    {{!-- Custom CSS --}}
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
+
+    <section id="NAVBAR">
+      <div class="uk-navbar-container" uk-navbar>
+          <div class="uk-navbar-center">
+              <a href="/" class="uk-navbar-item uk-logo">Festivus</a>
+          </div>
+      </div>
+    </section>
+
     {{{body}}}
+
+    <section id="FOOTER">
+
+    </section>
+
   </body>
 </html>
