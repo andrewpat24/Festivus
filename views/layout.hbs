@@ -8,7 +8,7 @@
     {{!-- UIKit JS --}}
     <script src='/libraries/uikit/js/uikit.js' ></script>
     {{!-- Font import --}}
-    <link href="https://fonts.googleapis.com/css?family=Cookie|Dancing+Script|Marck+Script" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Raleway|Marck+Script|Ubuntu" rel="stylesheet">
 
     {{!-- Custom CSS --}}
     <link rel='stylesheet' href='/stylesheets/style.css' />
@@ -16,11 +16,29 @@
   <body>
 
     <section id="NAVBAR">
-      <div class="uk-navbar-container" uk-navbar>
-          <div class="uk-navbar-center">
+      <nav class="uk-navbar-container" uk-navbar>
+          <div class="uk-navbar-left">
+            <div class="uk-navbar-nav">
               <a href="/" class="uk-navbar-item uk-logo">Festivus</a>
+            </div>
           </div>
-      </div>
+
+          <div class="uk-navbar-right">
+            
+
+              <ul class="uk-navbar-nav uk-navbar-right navbar-items">
+                <li>
+                  <a class="navbar-item" href="/">Home</a>
+                </li>
+                <li>
+                  <a class="navbar-item" href="/search">Search</a>
+                </li>
+                <li>
+                  <a class="navbar-item" href="/link">Link Spotify</a>
+                </li>
+              </ul>
+          </div>
+      </nav>
     </section>
 
     {{{body}}}

@@ -5,7 +5,6 @@
   "scripts": {
     "start": "nodemon node ./bin/www; lessc public/stylesheets/style.less public/stylesheets/style.css",
     "initialize-tables": "sequelize db:migrate"
-    
   },
   "dependencies": {
     "cookie-parser": "~1.4.3",

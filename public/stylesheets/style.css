@@ -1,10 +1,57 @@
 body {
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font: 14px 'Raleway', sans-serif;
 }
-a {
-  color: #05b205FF;
+nav.uk-navbar-container.uk-navbar {
+  background-color: #191414;
+  color: white;
+}
+.uk-navbar-nav a,
+li a.navbar-item {
+  color: white;
 }
 .uk-logo {
   font-family: 'Marck Script', cursive;
-  font-size: 4em;
+  font-size: 3em;
+}
+nav.uk-navbar-container {
+  padding: 0% 15%;
+}
+.navbar-items li {
+  width: 130px;
+}
+h1.hero-button {
+  color: white;
+  font-family: 'Ubuntu';
+  font-weight: bold;
+  font-size: 3.5em;
+  letter-spacing: 10px;
+  border: 3px solid white;
+  border-radius: 25px;
+  padding: .5%;
+}
+.section .section-text {
+  font-family: 'Ubuntu';
+}
+.mission-statement {
+  padding: 100px 15%;
+}
+.section-container.spotify-link {
+  width: 36%;
+}
+.spotify-link {
+  position: relative;
+  top: 50%;
+  left: 20%;
+}
+.spotify-button {
+  background-color: #1db954;
+}
+.spotify-link button {
+  color: white;
+}
+button.uk-button.uk-button-default.spotify-button {
+  border-radius: 25px;
+}
+button.uk-button.uk-button-default.spotify-button:hover {
+  color: black;
 }
