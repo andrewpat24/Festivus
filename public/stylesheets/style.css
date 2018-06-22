@@ -1,7 +1,7 @@
 body {
   font: 14px 'Raleway', sans-serif;
 }
-nav.uk-navbar-container.uk-navbar {
+nav.uk-navbar-container.top-nav.uk-navbar {
   background-color: #191414;
   color: white;
 }
@@ -29,7 +29,20 @@ h1.hero-button {
   border-radius: 25px;
   padding: .5%;
 }
-.section .section-text {
+section#BODY {
+  padding-top: 1%;
+}
+.black-background {
+  background-color: #191414;
+}
+.black-background .section-container .section-text {
+  color: white;
+}
+.black-background .section-container .spotify-button:hover {
+  color: white;
+  border-color: transparent;
+}
+.section-text {
   font-family: 'Ubuntu';
 }
 .mission-statement {
@@ -45,6 +58,11 @@ h1.hero-button {
 }
 .spotify-button {
   background-color: #1db954;
+  border-color: transparent;
+}
+.spotify-button:hover {
+  color: white;
+  background-color: #1db954;
 }
 .spotify-link button {
   color: white;
@@ -52,6 +70,25 @@ h1.hero-button {
 button.uk-button.uk-button-default.spotify-button {
   border-radius: 25px;
 }
-button.uk-button.uk-button-default.spotify-button:hover {
-  color: black;
+.festival-search input.uk-search-input {
+  padding: 7%;
+  border: 1px solid #9B9B9B;
+  border-radius: 25px;
+  width: 210%;
+}
+nav.uk-navbar-container.uk-navbar.search-bar {
+  background-color: white;
+}
+.boundary.uk-panel.uk-placeholder {
+  width: 100%;
+}
+.uk-placeholder {
+  border: 1px solid black;
+}
+.result-container {
+  padding: 5%;
+}
+.uk-card-body {
+  padding: 10px 40px;
+  text-align: center;
 }

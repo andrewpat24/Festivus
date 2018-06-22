@@ -7,18 +7,11 @@ var lessMiddleware = require('less-middleware');
 var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
+var searchRouter = require('./routes/search');
 var usersRouter = require('./routes/users');
-
-
 
 var app = express();
 
-const festivals = require('./db/helperFunctions/festivals');
-
-festivals.retrieveAllFestivals()
-  .then((festivalList) => {
-    console.log(festivalList);
-  })
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
@@ -31,6 +24,7 @@ app.use(lessMiddleware(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
+// app.use('/search', searchRouter);
 app.use('/users', usersRouter);
 
 // catch 404 and forward to error handler

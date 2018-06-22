@@ -6,33 +6,12 @@ const artists = require('../db/helperFunctions/artists');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+  res.render('index', { title: 'Home' });
 });
 
-router.get('/getAllFestivals', function(req, res, next) {
+router.get('/search', function(req, res, next) {
+  res.render('search', {title: 'Search'});
+})
 
-  festivals.retrieveAllFestivals()
-    .then((responseObject) => {
-      res.render('index', {
-        responseObject: responseObject,
-        title: 'Festivus'
-      })
-    }); 
 
-});
-
-router.get('/getArtistsFromFestival', function(req,res,next) {
-
-  festivals.retrieveFestivalByID(2)
-    .then((festival) => {
-      artists.findArtistByFestival(2)
-      .then((responseObject) => {
-        res.render('index', {
-          responseObject: responseObject,
-          title: festival.name
-        })
-      })
-    });
-  
-});
 module.exports = router;
