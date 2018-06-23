@@ -36,3 +36,6 @@ Migrate the database model into postgres (this command must be run while termina
 
 > sequelize db:migrate
 
+Copy .env-example and rename it to .env
+
+Only DB_URL is in use, so just make that one by changing the username and password text. 
