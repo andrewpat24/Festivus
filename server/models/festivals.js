@@ -6,7 +6,8 @@ module.exports = (sequelize, DataTypes) => {
     location: DataTypes.STRING,
     date_span: DataTypes.STRING,
     bio: DataTypes.STRING,
-    logo: DataTypes.STRING
+    logo: DataTypes.STRING,
+    genre: DataTypes.STRING
   }, {});
   festivals.associate = function(models) {
     // associations can be defined here

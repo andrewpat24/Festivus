@@ -13,9 +13,13 @@ router.get('/search', function(req, res, next) {
   res.render('search', {title: 'Search'});
 })
 
-router.get('/festival', function(req, res, next) {
-  // var id = request.params.festivalID; 
-
+router.get('/festival/:festivalID', function(req, res, next) {
+  var id = req.params.festivalID; 
+  console.log(id);
+  const currentFestival = festivals.retrieveFestivalByID(id).then(function (result) {
+    console.log(result);
+  });
+  console.log("hello world!");
   var festivalLinup = (function() {
     return [
       {
