@@ -23,6 +23,23 @@ app.use(cookieParser());
 app.use(lessMiddleware(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'public')));
 
+// const festivals = require('./db/helperFunctions/festivals');
+
+// let festivalObj = {
+//   name: "Outside Lands",
+//   show_url:"https://www.sfoutsidelands.com/",
+//   location:"San Francisco, California",
+//   date_span:"August 10-12",
+//   genre: 'variety',
+//   bio: `The Outside Lands Music and Arts Festival is a music festival held annually in San Francisco, California, at Golden Gate Park. The first edition occurred from August 22 to 24, 2008.`,
+//   logo: "https://www.sfoutsidelands.com/uploads/outside-lands-2018-social-share-image.jpg"
+// }
+
+// festivals.addFestival(festivalObj)
+//   .then((res) => {
+//     console.log("added festival", res);
+//   })
+
 app.use('/', indexRouter);
 // app.use('/search', searchRouter);
 app.use('/users', usersRouter);

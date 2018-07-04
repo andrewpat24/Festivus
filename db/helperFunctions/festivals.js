@@ -14,6 +14,7 @@ festivals.addFestival = (festivalObj) => {
         show_url:festivalObj.show_url, 
         location:festivalObj.location, 
         date_span:festivalObj.date_span, 
+        genre: festivalObj.genre,
         bio:festivalObj.bio, 
         logo:festivalObj.logo, 
         createdAt:festivalObj.createdAt, 
