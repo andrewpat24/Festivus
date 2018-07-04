@@ -46,7 +46,7 @@ Thanks to our friend lukas, we have designs!
 
 https://xd.adobe.com/spec/c69b052c-b92d-4747-60e1-03db5ab70ec1-b0aa/
 
-(https://i.imgur.com/0TAW4Zw.jpg)
+https://i.imgur.com/0TAW4Zw.jpg
 
 ## How the fuck does this all work? 
 
