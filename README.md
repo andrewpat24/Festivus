@@ -40,6 +40,11 @@ Copy .env-example and rename it to .env
 
 Only DB_URL is in use, so just make that one by changing the username and password text. 
 
+## Current design comps
+
+Thanks to our friend lukas, we have designs! 
+https://xd.adobe.com/spec/c69b052c-b92d-4747-60e1-03db5ab70ec1-b0aa/
+
 ## How the fuck does this all work? 
 
 Take a look in package.json, 'npm start' runs a script which kicks off bin/www. 

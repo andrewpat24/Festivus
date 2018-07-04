@@ -16,37 +16,38 @@ router.get('/search', function(req, res, next) {
 router.get('/festival/:festivalID', function(req, res, next) {
   var id = req.params.festivalID; 
 
-  var festival = festivals.retrieveFestivalByID(id).then(function (returnedFestival) {
-    var festivalLinup = (function(festivalID) {
-      console.log('festivalObj ' + returnedFestival.id);
-      return [
-        {
-          artistName: "David Guetta",
-          artistProfilePicture: "https://i.scdn.co/image/62225a86b462fca0a9f6a698fa6e4583f25bc0b7",
-          artistFollowers: 2345342, 
-          genre: "EDM"
-        },
-        {
-          artistName: "Zhu",
-          artistProfilePicture: "https://i.scdn.co/image/62225a86b462fca0a9f6a698fa6e4583f25bc0b7",
-          artistFollowers: 2345234, 
-          genre: "EDM"
-        },
-        {
-          artistName: "Mt Eden",
-          artistProfilePicture: "https://i.scdn.co/image/62225a86b462fca0a9f6a698fa6e4583f25bc0b7",
-          artistFollowers: 2345, 
-          genre: "EDM"
-        },
-        {
-          artistName: "Bassnectar",
-          artistProfilePicture: "https://i.scdn.co/image/62225a86b462fca0a9f6a698fa6e4583f25bc0b7",
-          artistFollowers: 234523, 
-          genre: "EDM"
-        }
-      ]
-    })(returnedFestival.id);  
-  
+  var festival = festivals.retrieveFestivalByID(id)
+    .then(function (returnedFestival) {
+      var festivalLinup = (function(festivalID) {
+        console.log('festivalObj ' + returnedFestival.id);
+        return [
+          {
+            artistName: "David Guetta",
+            artistProfilePicture: "https://i.scdn.co/image/62225a86b462fca0a9f6a698fa6e4583f25bc0b7",
+            artistFollowers: 2345342, 
+            genre: "EDM"
+          },
+          {
+            artistName: "Zhu",
+            artistProfilePicture: "https://i.scdn.co/image/62225a86b462fca0a9f6a698fa6e4583f25bc0b7",
+            artistFollowers: 2345234, 
+            genre: "EDM"
+          },
+          {
+            artistName: "Mt Eden",
+            artistProfilePicture: "https://i.scdn.co/image/62225a86b462fca0a9f6a698fa6e4583f25bc0b7",
+            artistFollowers: 2345, 
+            genre: "EDM"
+          },
+          {
+            artistName: "Bassnectar",
+            artistProfilePicture: "https://i.scdn.co/image/62225a86b462fca0a9f6a698fa6e4583f25bc0b7",
+            artistFollowers: 234523, 
+            genre: "EDM"
+          }
+        ]
+      })(returnedFestival.id);  
+    
     res.render('festival', {
       festivalName: returnedFestival.name,
       festivalProfilePicture: returnedFestival.logo,
