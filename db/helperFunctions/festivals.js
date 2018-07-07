@@ -69,6 +69,30 @@ festivals.retrieveFestivalByName = (festival_name) => {
 // })
 ///////////////////////////////////////
 
+// Todo: test this thing
+festivals.findFestivalByField = (field_name, value) => {
+    return db.one('SELECT * FROM "festivals" WHERE ${field_name} = ${value}', {
+        field_name: field_name, 
+        value: value 
+    });
+}
+
+// Todo: test this thing
+//id |     name      | show_url     | location          |  date_span   |      bio    |        logo    | genre |         createdAt          |         updatedAt          
+
+festivals.searchLikeFestivals = (query) => {
+    query = query + "%";
+
+    return db.many(`SELECT * FROM festivals WHERE 
+    name ILIKE '${query}'
+    OR location ILIKE '${query}'
+    OR date_span ILIKE '${query}'
+    OR genre ILIKE '${query}'`);
+}
+
+///////////////////////////////////////
+
+
 festivals.retrieveAllFestivals = () => {
     return db.many('SELECT * FROM "festivals"');
 }

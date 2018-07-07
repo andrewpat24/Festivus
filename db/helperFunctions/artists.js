@@ -55,6 +55,39 @@ artists.findArtistByFestival = (festival_id) => {
   //   });
 /////////////////////////////////////
 
+//TODO: test this thing
+// artist fields: id | name | spotify_profile | showtime | profile_picture | bio | festival_id | genre | createdAt | updatedAt 
+artists.findWhereArtistByField = (field_name, value) => {
+    return db.one('SELECT * FROM "artists" WHERE ${field_name} = ${value}', {
+        field_name: field_name, 
+        value: value
+    });
+}
+
+/////////////////////////////////////
+
+//TODO: test this thing
+artists.findLikeArtistsByField = (field_name, value) => {
+    return db.many('SELECT * FROM "artists" ILIKE ${field_name} = ${value}', {
+        field_name: field_name, 
+        value: value
+    });
+}
+
+//TODO: test this thing
+artists.searchLikeArtists = (query) => {
+    return db.many(`SELECT * FROM "artists" WHERE 
+    id ILIKE ${query} 
+    OR name ILIKE ${query} 
+    OR spotify_profile ILIKE ${query} 
+    OR showtime ILIKE ${query} 
+    OR genre ILIKE ${query}`);
+}
+
+
+
+/////////////////////////////////////
+
 artists.retrieveArtist = (artist_id) => {
     return db.one('SELECT * FROM "artists" WHERE id = ${id}', {
         id: artist_id

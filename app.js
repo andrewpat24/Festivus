@@ -23,7 +23,11 @@ app.use(cookieParser());
 app.use(lessMiddleware(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'public')));
 
-// const festivals = require('./db/helperFunctions/festivals');
+const festivals = require('./db/helperFunctions/festivals');
+festivals.searchLikeFestivals('Outside L')
+  .then(function (result, error) {
+    console.log(result);
+  });
 
 // let festivalObj = {
 //   name: "Outside Lands",
