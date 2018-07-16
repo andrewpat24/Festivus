@@ -77,12 +77,9 @@ festivals.findFestivalByField = (field_name, value) => {
     });
 }
 
-// Todo: test this thing
-//id |     name      | show_url     | location          |  date_span   |      bio    |        logo    | genre |         createdAt          |         updatedAt          
-
+//id |     name      | show_url     | location |  date_span   | bio    |        logo    | genre | createdAt  |   updatedAt
 festivals.searchLikeFestivals = (query) => {
-    query = query + "%";
-
+    query = "%" + query + "%";
     return db.many(`SELECT * FROM festivals WHERE 
     name ILIKE '${query}'
     OR location ILIKE '${query}'

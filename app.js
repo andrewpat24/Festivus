@@ -5,6 +5,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var lessMiddleware = require('less-middleware');
 var logger = require('morgan');
+const bodyParser = require('body-parser');
 
 var indexRouter = require('./routes/index');
 var searchRouter = require('./routes/search');
@@ -20,14 +21,20 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: false}));
 app.use(lessMiddleware(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'public')));
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: false }))
+// parse application/json
+app.use(bodyParser.json())
 
-const festivals = require('./db/helperFunctions/festivals');
-festivals.searchLikeFestivals('Outside L')
-  .then(function (result, error) {
-    console.log(result);
-  });
+
+// festivals.searchLikeFestivals('Outside Lands San Francisco')
+//   .then(function (result, error) {
+//     console.log(result);
+//   });
 
 // let festivalObj = {
 //   name: "Outside Lands",
@@ -45,7 +52,7 @@ festivals.searchLikeFestivals('Outside L')
 //   })
 
 app.use('/', indexRouter);
-// app.use('/search', searchRouter);
+app.use('/search', searchRouter);
 app.use('/users', usersRouter);
 
 // catch 404 and forward to error handler

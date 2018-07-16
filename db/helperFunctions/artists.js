@@ -76,7 +76,8 @@ artists.findLikeArtistsByField = (field_name, value) => {
 
 //TODO: test this thing
 artists.searchLikeArtists = (query) => {
-    return db.many(`SELECT * FROM "artists" WHERE 
+    query = query + "%"; 
+    return db.many(`SELECT * FROM artists WHERE 
     id ILIKE ${query} 
     OR name ILIKE ${query} 
     OR spotify_profile ILIKE ${query} 

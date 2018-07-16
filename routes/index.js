@@ -9,10 +9,7 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Home' });
 });
 
-router.get('/search', function(req, res, next) {
-  res.render('search', {title: 'Search'});
-})
-
+// TODO: implement dynamic functions for this code. 
 router.get('/festival/:festivalID', function(req, res, next) {
   var id = req.params.festivalID; 
 
@@ -58,6 +55,8 @@ router.get('/festival/:festivalID', function(req, res, next) {
   });
 });
 
+
+// TODO: implement dynamic functions for this code. 
 router.get('/artist', function (req,res, next) {
   // var id = request.params.festivalID; 
   var artistAlbums = [
