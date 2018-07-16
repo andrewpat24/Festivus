@@ -11,7 +11,16 @@ const artists = require('../db/helperFunctions/artists');
 // });
 
 router.get('/', function(req, res, next) {
-  res.render('search', {title: 'Search'});
+ 
+
+  festivals.retrieveAllFestivals()
+  .then((results) => {
+    res.render('search', {
+      searchResults: results,
+      title: 'Festivus'
+    })
+  }); 
+
 })
 
 router.get('/returnAllFestivals', function(req, res, next) {
