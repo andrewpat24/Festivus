@@ -95,7 +95,7 @@ Let's go through our directories top to bottom:
 * Contains all of our sensitive information like usernames, passwords, api keys, etc so it can be abstracted and not put up into github. 
 
 #### package.json
-* The scripts key is where you can check to see what scripts are available or where you can make new scripts for our project, so you don't have to write the whole thing out. 
+* The scripts key is where you can check to see what scripts are available or where you can make new scripts for our project.
 
 
 
