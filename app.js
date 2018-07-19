@@ -5,12 +5,9 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var lessMiddleware = require('less-middleware');
 var logger = require('morgan');
-<<<<<<< HEAD
 var passport = require('passport')
 var session = require('express-session');
-=======
 const bodyParser = require('body-parser');
->>>>>>> origin/dev
 
 var indexRouter = require('./routes/index');
 var searchRouter = require('./routes/search');
@@ -30,7 +27,6 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(lessMiddleware(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'public')));
-<<<<<<< HEAD
 app.use(session({
    secret: 'keyboard cat',
    saveUnitialized: true,
@@ -40,12 +36,10 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
-=======
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }))
 // parse application/json
 app.use(bodyParser.json())
->>>>>>> origin/dev
 
 
 // festivals.searchLikeFestivals('Outside Lands San Francisco')
