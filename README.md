@@ -46,6 +46,8 @@ Thanks to our friend lukas, we have designs!
 
 https://xd.adobe.com/spec/c69b052c-b92d-4747-60e1-03db5ab70ec1-b0aa/
 
+https://i.imgur.com/0TAW4Zw.jpg
+
 ## How the fuck does this all work? 
 
 Take a look in package.json, 'npm start' runs a script which kicks off bin/www. 
@@ -93,7 +95,7 @@ Let's go through our directories top to bottom:
 * Contains all of our sensitive information like usernames, passwords, api keys, etc so it can be abstracted and not put up into github. 
 
 #### package.json
-* The scripts key is where you can check to see what scripts are available or where you can make new scripts for our project, so you don't have to write the whole thing out. 
+* The scripts key is where you can check to see what scripts are available or where you can make new scripts for our project.
 
 
 

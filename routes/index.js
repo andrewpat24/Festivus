@@ -50,6 +50,7 @@ router.get('/', function(req, res, next){
   res.render('index', { title: 'Home' });
 });
 
+<<<<<<< HEAD
 router.get('/search', function(req, res, next){
   res.render('search', {title: 'Search'});
 })
@@ -82,6 +83,9 @@ router.get('/logout', function(req, res){
   req.redirect('/')
 });
 
+=======
+// TODO: implement dynamic functions for this code. 
+>>>>>>> origin/dev
 router.get('/festival/:festivalID', function(req, res, next) {
   var id = req.params.festivalID; 
 
@@ -127,6 +131,7 @@ router.get('/festival/:festivalID', function(req, res, next) {
   });
 });
 
+<<<<<<< HEAD
 // Simple route middleware to ensure user is authenticated to be used on pages that need to ensure authentication
 /* If the request is authenticated (typically via a persistent login session), the request will proceed.
    Otherwise the user will be redirected to the index page.
@@ -136,6 +141,10 @@ function ensureAuthenticated(req, res, next){
   res.redirect('/');
 } 
 
+=======
+
+// TODO: implement dynamic functions for this code. 
+>>>>>>> origin/dev
 router.get('/artist', function (req,res, next) {
   // var id = request.params.festivalID; 
   var artistAlbums = [

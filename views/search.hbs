@@ -4,9 +4,9 @@
             <div class="uk-navbar-left">
 
                 <div class="uk-navbar-item">
-                    <form class="uk-search uk-search-navbar festival-search">
+                    <form class="uk-search uk-search-navbar festival-search" action="/search" method="POST">
                         <span uk-search-icon></span>
-                        <input class="uk-search-input" type="search" placeholder="Search...">
+                        <input class="uk-search-input searchQuery" name="searchQuery" type="search" placeholder="Search...">
                     </form>
                 </div>
 
@@ -34,141 +34,38 @@
                 </div>
             </div>
         </div> --}}
+        
    </section>
    <section id="SEARCH-RESULTS">
     <div class="result-container">
 
         <div class="uk-child-width-1-4@m" uk-grid>
 
-            <div>
-                <div class="uk-card uk-card-default">
-                    <div class="uk-card-media-top">
-                        <img src="https://getuikit.com/docs/images/light.jpg" alt="">
-                    </div>
-                    <div class="uk-card-body">
-                        <h3 class="uk-card-title">EDC</h3>
-                        <div class="uk-column-1-2">
-                            <div class="festival-card-stats festival-card-stats-region">
-                                Las Vegas
-                            </div>
-                            
-                            <div class="festival-card-stats festival-card-stats-genre">
-                                EDM
+            {{#each searchResults}}
+                <div>
+                    <div class="uk-card uk-card-default">
+                        <div class="uk-card-media-top">
+                            <img src="https://getuikit.com/docs/images/light.jpg" alt="">
+                        </div>
+                        <div class="uk-card-body">
+                            <h3 class="uk-card-title">
+                                {{name}}
+                            </h3>
+                            <div class="uk-column-1-2">
+                                <div class="festival-card-stats festival-card-stats-region">
+                                    {{location}}
+                                </div>
+                                
+                                <div class="festival-card-stats festival-card-stats-genre">
+                                    {{location}}
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div>
-                <div class="uk-card uk-card-default">
-                    <div class="uk-card-media-top">
-                        <img src="https://getuikit.com/docs/images/light.jpg" alt="">
-                    </div>
-                    <div class="uk-card-body">
-                        <h3 class="uk-card-title">EDC</h3>
-                        <div class="uk-column-1-2">
-                            <div class="festival-card-stats festival-card-stats-region">
-                                Las Vegas
-                            </div>
-                            
-                            <div class="festival-card-stats festival-card-stats-genre">
-                                EDM
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div>
-                <div class="uk-card uk-card-default">
-                    <div class="uk-card-media-top">
-                        <img src="https://getuikit.com/docs/images/light.jpg" alt="">
-                    </div>
-                    <div class="uk-card-body">
-                        <h3 class="uk-card-title">EDC</h3>
-                        <div class="uk-column-1-2">
-                            <div class="festival-card-stats festival-card-stats-region">
-                                Las Vegas
-                            </div>
-                            
-                            <div class="festival-card-stats festival-card-stats-genre">
-                                EDM
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div>
-                <div class="uk-card uk-card-default">
-                    <div class="uk-card-media-top">
-                        <img src="https://getuikit.com/docs/images/light.jpg" alt="">
-                    </div>
-                    <div class="uk-card-body">
-                        <h3 class="uk-card-title">EDC</h3>
-                        <div class="uk-column-1-2">
-                            <div class="festival-card-stats festival-card-stats-region">
-                                Las Vegas
-                            </div>
-                            
-                            <div class="festival-card-stats festival-card-stats-genre">
-                                EDM
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div>
-                <div class="uk-card uk-card-default">
-                    <div class="uk-card-media-top">
-                        <img src="https://getuikit.com/docs/images/light.jpg" alt="">
-                    </div>
-                    <div class="uk-card-body">
-                        <h3 class="uk-card-title">EDC</h3>
-                        <div class="uk-column-1-2">
-                            <div class="festival-card-stats festival-card-stats-region">
-                                Las Vegas
-                            </div>
-                            
-                            <div class="festival-card-stats festival-card-stats-genre">
-                                EDM
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div>
-                <div class="uk-card uk-card-default">
-                    <div class="uk-card-media-top">
-                        <img src="https://getuikit.com/docs/images/light.jpg" alt="">
-                    </div>
-                    <div class="uk-card-body">
-                        <h3 class="uk-card-title">EDC</h3>
-                        <div class="uk-column-1-2">
-                            <div class="festival-card-stats festival-card-stats-region">
-                                Las Vegas
-                            </div>
-                            
-                            <div class="festival-card-stats festival-card-stats-genre">
-                                EDM
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            {{/each}}
 
+        </div>
 
-
-
-
-
-
-
-
-
-
-
-        <div>
-
-
-    </div>
    </section>
 </section>
