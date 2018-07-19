@@ -5,6 +5,8 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var lessMiddleware = require('less-middleware');
 var logger = require('morgan');
+var passport = require('passport')
+var session = require('express-session');
 
 var indexRouter = require('./routes/index');
 var searchRouter = require('./routes/search');
@@ -22,6 +24,15 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(lessMiddleware(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(session({
+   secret: 'keyboard cat',
+   saveUnitialized: true,
+   resave: true
+}));
+// Initialize passport! Also using passport.session() middleware, to support persistent login sessions
+app.use(passport.initialize());
+app.use(passport.session());
+
 
 // const festivals = require('./db/helperFunctions/festivals');
 
