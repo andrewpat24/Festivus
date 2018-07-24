@@ -1,5 +1,3 @@
-/* DO NOT TOUCH ANYTHING IN THIS FILE - CHANGES IN THE .less FILE WILL BE AUTOMATICALLY COMPILED INTO HERE */
-
 body {
   font: 14px 'Raleway', sans-serif;
 }
@@ -93,4 +91,7 @@ nav.uk-navbar-container.uk-navbar.search-bar {
 .uk-card-body {
   padding: 10px 40px;
   text-align: center;
+}
+.someClass {
+  padding: 0;
 }
