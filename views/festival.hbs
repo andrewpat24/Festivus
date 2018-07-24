@@ -2,8 +2,8 @@
 <section id="HERO">
     <div class="hero-area-container">
         <div class="hero-area">
-            <div class="uk-height-medium uk-flex uk-flex-center uk-flex-middle uk-background-cover uk-light" data-src="https://wallpapercave.com/wp/wp1889481.jpg" uk-img>
-                <h1 class="hero-button">FIND YOUR VIBE.</h1>
+            <div class="uk-height-medium uk-flex uk-flex-center uk-flex-middle uk-background-cover uk-light" data-src="https://www.tomorrowland.com/global/img/header-background-2018.jpg" uk-img>
+                {{!-- <h1 class="banner-text">Tomorrowland</h1> --}}
             </div>
         </div>
     </div>
@@ -12,47 +12,116 @@
 <section id="BODY">
     <div class="body-container">
         <div class="body">
-            <div class="mission-statement-container">
-                <div class="mission-statement">
-                    <div class="uk-grid" style="">
-                        <div class="uk-width-1-2">
-                            <div class="section-container">
-                                <h1 class="section-header section-text">What is Festivus.</h1>
-                                <h2 class="section-description section-text">
-                                    Festivus lets you find the perfect music festivals for you
-                                    based on your listening habits. 
-                                </h2>
-                            </div>
+            <div class="uk-grid" style="">
+                <div class="uk-width-2-3">
+
+                    {{!--  --}}
+                    <div class="page-about-container festival-page-section">
+                        <div class="page-about-header">
+                            <h1>About</h1>
                         </div>
-                        <div class="uk-width-1-2">
-                            <div class="section-container spotify-link">
-                                    <button class="uk-button uk-button-default spotify-button">Link Spotify</button>
-                            </div>
+                        <div class="page-about-content">
+                            The People of Tomorrow. We believe in enjoying life to the fullest without having to compromise everything. 
+                            We are responsible for the generation of tomorrow and respect each other and Mother Nature. 
+                            We believe... in a commitment to create a reality that relates positively with Mother Nature and contributes to the well-being of the next generations.
+                            Let’s engage with each other and do something good today, for which we will be grateful for tomorrow.
                         </div>
                     </div>
-                </div>
-            </div>
-            <div class="mission-statement-container">
-                <div class="mission-statement black-background">
-                    <div class="uk-grid" style="">
-                        <div class="uk-width-1-2">
-                            <div class="section-container">
-                                <h1 class="section-header section-text">How it works.</h1>
-                                <h2 class="section-description section-text">
-                                    Festivus analyzes your spotify artists to find 
-                                    the perfect festival for you. 
-                                </h2>
-                            </div>
+                    {{!--  --}}
+
+                    <div class="page-images-container festival-page-section">
+                        <div class="page-images-header">
+                            <h1>Images</h1>
                         </div>
-                        <div class="uk-width-1-2">
-                            <div class="section-container spotify-link">
-                                    <button class="uk-button uk-button-default spotify-button">Link Spotify</button>
-                            </div>
+                        <div class="page-images-album">
+
                         </div>
                     </div>
+                    
+                    <div class="page-lineup-container festival-page-section">
+                        <div class="page-lineup-header">
+
+                        </div>
+                        <div class="page-lineup-data">
+                            <div class="page-lineup-followed-artists">
+                                <div class="page-lineup-followed-artists-header">
+                                    <h2>Artists you follow</h2>
+                                </div>
+                                <div class="page-lineup-followed-artists-result">
+                                    <div class="uk-child-width-1-4@m" uk-grid>
+
+                                        {{#each festivalLineup}}
+                                            <div>
+                                                <div class="uk-card uk-card-default">
+                                                    <div class="uk-card-media-top">
+                                                        <img src="{{artistProfilePicture}}" alt="">
+                                                    </div>
+                                                    <div class="uk-card-body lineup-card-body">
+                                                        <h3 class="uk-card-title lineup-card-name">
+                                                            {{artistName}}
+                                                        </h3>
+                                                        <div class="uk-column-1-3 card-info">
+                                                            <div class="festival-card-stats festival-card-stats-region">
+                                                                {{genre}}
+                                                            </div>
+                                                            
+                                                            <div class="festival-card-stats festival-card-stats-genre">
+                                                                {{artistFollowers}}
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        {{/each}}
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="page-lineup-all-artists">
+                                <div class="page-lineup-all-artists-header">
+                                    <h2>All Artists</h2> 
+                                    <span class="lineup-sort-type">(A-Z)</span>
+                                </div>
+                                <div class="page-lineup-all-artists-result">
+
+                                    <div class="uk-child-width-1-4@m" uk-grid>
+                                        {{#each festivalLineup}}
+                                            <div>
+                                                <div class="uk-card uk-card-default">
+                                                    <div class="uk-card-media-top">
+                                                        <img src="{{artistProfilePicture}}" alt="">
+                                                    </div>
+                                                    <div class="uk-card-body lineup-card-body">
+                                                        <h3 class="uk-card-title lineup-card-name">
+                                                            {{artistName}}
+                                                        </h3>
+                                                        <div class="uk-column-1-3 card-info">
+                                                            <div class="festival-card-stats festival-card-stats-region">
+                                                                {{genre}}
+                                                            </div>
+                                                            
+                                                            <div class="festival-card-stats festival-card-stats-genre">
+                                                                {{artistFollowers}}
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        {{/each}}
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        
+                    </div>
+
+                </div>
+                <div class="uk-width-1-3 festival-page-side-menu">
+                    <h3>More Info.</h3>
                 </div>
             </div>
-            
         </div>
     </div>
 </section>
