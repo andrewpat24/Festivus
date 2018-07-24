@@ -121,3 +121,11 @@ nav.uk-navbar-container.uk-navbar.search-bar {
 .festival-page-side-menu {
   padding-top: 3.5%;
 }
+.page-lineup-all-artists-header {
+  display: inline-flex;
+}
+span.lineup-sort-type {
+  position: relative;
+  top: 15px;
+  left: 10px;
+}
