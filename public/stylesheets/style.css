@@ -150,6 +150,7 @@ nav.uk-navbar-container.uk-navbar.search-bar {
 .page-about-content {
   max-width: 85%;
   font-size: 1.2em;
+  line-height: 1.5;
 }
 .lineup-card-name {
   font-size: 1.2em;
