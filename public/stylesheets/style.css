@@ -20,6 +20,10 @@ body {
   font-weight: lighter;
   src: url("../fonts/bellota/Bellota-Light.otf") format("opentype");
 }
+@font-face {
+  font-family: dense;
+  src: url("../fonts/dense/Dense-Regular.otf") format("opentype");
+}
 nav.uk-navbar-container.top-nav.uk-navbar {
   background-color: #191414;
   color: white;
@@ -29,8 +33,9 @@ li a.navbar-item {
   color: white;
 }
 .uk-logo {
-  font-family: 'Marck Script', cursive;
+  font-family: dense;
   font-size: 3em;
+  letter-spacing: 3px;
 }
 nav.uk-navbar-container {
   padding: 0% 15%;
