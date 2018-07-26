@@ -1,6 +1,25 @@
 body {
   font: 14px 'Raleway', sans-serif;
 }
+@font-face {
+  font-family: bellota;
+  src: url("../fonts/bellota/Bellota-Regular.otf") format("opentype");
+}
+@font-face {
+  font-family: bellota;
+  font-weight: bold;
+  src: url("../fonts/bellota/Bellota-Bold.otf") format("opentype");
+}
+@font-face {
+  font-family: bellota;
+  font-weight: italic;
+  src: url("../fonts/bellota/Bellota-Italic.otf") format("opentype");
+}
+@font-face {
+  font-family: bellota;
+  font-weight: lighter;
+  src: url("../fonts/bellota/Bellota-Light.otf") format("opentype");
+}
 nav.uk-navbar-container.top-nav.uk-navbar {
   background-color: #191414;
   color: white;
@@ -95,19 +114,42 @@ nav.uk-navbar-container.uk-navbar.search-bar {
   padding: 10px 40px;
   text-align: center;
 }
+.page-profile-picture {
+  text-align: center;
+  background-color: black;
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+}
+.profile-picture {
+  display: inline-block;
+  position: relative;
+  top: 25%;
+  width: 70%;
+}
+.page-profile-title {
+  position: relative;
+  top: 30%;
+  font-size: 3em;
+  right: 40%;
+}
+.page-profile-title {
+  font-family: bellota;
+  font-size: 3.5em;
+}
 .festival-page-section {
   padding-top: 5%;
   padding-left: 30%;
 }
-.page-about-content {
-  max-width: 70%;
-  font-size: 1.2em;
+.page-about-header {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2.75em;
+  font-weight: bolder;
+  padding-bottom: 5%;
 }
-.lineup-card-body {
-  padding-top: 10px;
-  padding-bottom: 10px;
-  padding-left: 0;
-  padding-right: 0;
+.page-about-content {
+  max-width: 85%;
+  font-size: 1.2em;
 }
 .lineup-card-name {
   font-size: 1.2em;
@@ -115,10 +157,7 @@ nav.uk-navbar-container.uk-navbar.search-bar {
 .page-lineup-all-artists {
   padding-top: 10%;
 }
-.card-info {
-  padding-left: 10%;
-}
-.festival-page-side-menu {
+.festival-page-side-menu-container {
   padding-top: 3.5%;
 }
 .page-lineup-all-artists-header {
@@ -128,4 +167,24 @@ span.lineup-sort-type {
   position: relative;
   top: 15px;
   left: 10px;
+}
+.page-side-menu {
+  padding-left: 5%;
+  position: fixed;
+  top: 35%;
+}
+.side-menu-header {
+  font-size: 1.5em;
+  font-family: 'Montserrat', sans-serif;
+}
+ul.side-menu-content-list {
+  list-style-type: none;
+}
+.side-menu-content {
+  position: relative;
+  right: 20%;
+  padding-top: 10%;
+}
+.side-menu-content-list li {
+  padding: 8% 0%;
 }
