@@ -50,10 +50,6 @@ router.get('/', function(req, res, next){
   res.render('index', { title: 'Home' });
 });
 
-router.get('/search', function(req, res, next){
-  res.render('search', {title: 'Search'});
-})
-
 // GET auth page. (WIP)
 router.get('/auth/spotify', 
     passport.authenticate(
@@ -87,8 +83,8 @@ router.get('/festival/:festivalID', function(req, res, next) {
 
   var festival = festivals.retrieveFestivalByID(id)
     .then(function (returnedFestival) {
-      var festivalLinup = (function(festivalID) {
-        console.log('festivalObj ' + returnedFestival.id);
+      var festivalLineup = (function(festivalID) {
+        // console.log('festivalObj ' + returnedFestival.id);
         return [
           {
             artistName: "David Guetta",
@@ -114,16 +110,17 @@ router.get('/festival/:festivalID', function(req, res, next) {
             artistFollowers: 234523, 
             genre: "EDM"
           }
-        ]
+        ];
       })(returnedFestival.id);  
-    
-    res.render('festival', {
-      festivalName: returnedFestival.name,
-      festivalProfilePicture: returnedFestival.logo,
-      festivalBio: returnedFestival.bio, 
-      festivalURL: returnedFestival.show_url,
-      festivalLineup: festivalLinup
-    });
+      console.info(festivalLineup);
+      res.render('festival', {
+        festivalName: returnedFestival.name,
+        festivalProfilePicture: returnedFestival.logo,
+        festivalBio: returnedFestival.bio, 
+        festivalURL: returnedFestival.show_url,
+        festivalLineup: festivalLineup
+      });
+
   });
 });
 

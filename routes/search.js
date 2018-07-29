@@ -11,15 +11,15 @@ const artists = require('../db/helperFunctions/artists');
 // });
 
 router.get('/', function(req, res, next) {
- 
 
   festivals.retrieveAllFestivals()
-  .then((results) => {
-    res.render('search', {
-      searchResults: results,
-      title: 'Festivus'
-    })
-  }); 
+    .then((results) => {
+      console.log(JSON.stringify(results));
+      res.render('search', {
+        searchResults: results,
+        title: 'Festivus'
+      })
+    }); 
 
 });
 

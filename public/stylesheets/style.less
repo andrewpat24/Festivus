@@ -2,6 +2,38 @@ body {
   font: 14px 'Raleway', sans-serif;
 }
 
+// FONTS
+
+// Bellota
+@font-face {
+  font-family: bellota;
+  src: url("../fonts/bellota/Bellota-Regular.otf") format("opentype");
+}
+
+@font-face {
+  font-family: bellota;
+  font-weight: bold;
+  src: url("../fonts/bellota/Bellota-Bold.otf") format("opentype");
+}
+
+@font-face {
+  font-family: bellota;
+  font-weight: italic;
+  src: url("../fonts/bellota/Bellota-Italic.otf") format("opentype");
+}
+
+@font-face {
+  font-family: bellota;
+  font-weight: lighter;
+  src: url("../fonts/bellota/Bellota-Light.otf") format("opentype");
+}
+
+// Dense
+
+@font-face {
+  font-family: dense;
+  src: url("../fonts/dense/Dense-Regular.otf") format("opentype");
+}
 
 // NAVBAR /////////////////
 nav.uk-navbar-container.top-nav.uk-navbar {
@@ -14,8 +46,9 @@ nav.uk-navbar-container.top-nav.uk-navbar {
 }
 
 .uk-logo {
-  font-family: 'Marck Script', cursive;
+  font-family: dense;
   font-size: 3em;
+  letter-spacing: 3px;
 }
 
 nav.uk-navbar-container {
@@ -25,6 +58,7 @@ nav.uk-navbar-container {
 .navbar-items li {
   width: 130px; 
 }
+
 
 //////////////////////////
 
@@ -46,6 +80,10 @@ h1.hero-button{
 
 section#BODY {
   padding-top: 1%;
+}
+
+.body {
+  padding-bottom: 10%; 
 }
 
 // MISSION STATEMENT
@@ -138,6 +176,113 @@ nav.uk-navbar-container.uk-navbar.search-bar {
   text-align: center; 
 }
 
-.someClass {
-  padding: 0; 
+/////////////////////////
+
+// FESTIVAL PAGE
+
+.page-profile-picture {
+  text-align:center; 
+  background-color:black; 
+  height: 150px; 
+  width: 150px; 
+  border-radius: 50%; 
 }
+
+.profile-picture {
+  display:inline-block; 
+  position:relative; 
+  top: 25%; 
+  width: 70%; 
+}
+
+.page-profile-title {
+  position: relative;
+  top: 30%;
+  font-size: 3em;
+  right: 40%;
+}
+
+.page-profile-title {
+  font-family: bellota;
+  font-size: 3.5em; 
+}
+
+.festival-page-section {
+  padding-top: 5%;
+  padding-left: 25%;
+}
+
+.page-about-header {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2.75em;
+  font-weight: bolder;  
+  padding-bottom: 5%; 
+}
+
+.page-about-content {
+  max-width: 85%;
+  font-size: 1.2em;
+  line-height: 1.5;
+}
+
+.lineup-card-name {
+  font-size:1.2em;
+}
+
+.page-lineup-all-artists {
+  padding-top: 10%;
+}
+
+.festival-page-side-menu-container {
+  padding-top: 3.5%; 
+}
+
+.page-lineup-all-artists-header {
+  display: inline-flex;
+}
+
+span.lineup-sort-type {
+  position: relative;
+  top: 15px;
+  left: 10px;
+}
+
+a.nostyle:link {
+  text-decoration: inherit;
+  color: inherit;
+  
+}
+
+a.nostyle:visited {
+  text-decoration: inherit;
+  color: inherit;
+
+}
+
+// PAGE SIDE MENU 
+
+.page-side-menu {
+  padding-left: 5%; 
+  position: fixed;
+  top: 25%;
+}
+
+.side-menu-header {
+  font-size: 1.5em; 
+  font-family: 'Montserrat', sans-serif;
+}
+
+ul.side-menu-content-list {
+  list-style-type: none;
+}
+
+.side-menu-content {
+  position: relative;
+  right: 20%;
+  padding-top: 10%;
+}
+
+.side-menu-content-list li {
+  padding: 8% 0%; 
+}
+
