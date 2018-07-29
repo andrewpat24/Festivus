@@ -144,7 +144,7 @@ nav.uk-navbar-container.uk-navbar.search-bar {
 }
 .festival-page-section {
   padding-top: 5%;
-  padding-left: 30%;
+  padding-left: 25%;
 }
 .page-about-header {
   font-family: 'Montserrat', sans-serif;
@@ -174,10 +174,18 @@ span.lineup-sort-type {
   top: 15px;
   left: 10px;
 }
+a.nostyle:link {
+  text-decoration: inherit;
+  color: inherit;
+}
+a.nostyle:visited {
+  text-decoration: inherit;
+  color: inherit;
+}
 .page-side-menu {
   padding-left: 5%;
   position: fixed;
-  top: 35%;
+  top: 25%;
 }
 .side-menu-header {
   font-size: 1.5em;
