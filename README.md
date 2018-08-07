@@ -3,7 +3,7 @@
 ## Currently seeking help with these roles: 
 
 * Product Development
-* User Experience Designer
+* User Experience Design
 
 ## SETUP PROCEDURE
 
