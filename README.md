@@ -1,3 +1,10 @@
+# If you want to help contribute
+
+## Currently seeking help with these roles: 
+
+* Product Development
+* User Experience Designer
+
 ## SETUP PROCEDURE
 
 ### Setup postgres on your computer. 
