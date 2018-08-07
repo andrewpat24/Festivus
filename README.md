@@ -1,7 +1,5 @@
 # If you want to help contribute
-
-## Currently seeking help with these roles: 
-
+Currently seeking help with these roles: 
 * Product Development
 * User Experience Design
 
