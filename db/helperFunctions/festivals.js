@@ -4,23 +4,25 @@ const pgp = require('pg-promise')();
 
 let festivals = {}; 
 
-festivals.addFestival = (festivalObj) => {
-    let currentDateTime = new Date();
-    festivalObj["createdAt"] = currentDateTime;
-    festivalObj["updatedAt"] = currentDateTime; 
 
-    return db.query( 'INSERT INTO "festivals"(name,show_url,location,date_span,bio,logo,"createdAt","updatedAt") VALUES(${name},${show_url},${location},${date_span},${bio},${logo},${createdAt},${updatedAt}) RETURNING id' , {
-        name:festivalObj.name, 
-        show_url:festivalObj.show_url, 
-        location:festivalObj.location, 
-        date_span:festivalObj.date_span, 
-        genre: festivalObj.genre,
-        bio:festivalObj.bio, 
-        logo:festivalObj.logo, 
-        createdAt:festivalObj.createdAt, 
-        updatedAt:festivalObj.updatedAt
-    });
-}
+// TODO: Remake this thing forsure
+// festivals.addFestival = (festivalObj) => {
+//     let currentDateTime = new Date();
+//     festivalObj["createdAt"] = currentDateTime;
+//     festivalObj["updatedAt"] = currentDateTime; 
+
+//     return db.query( 'INSERT INTO "festivals"(name,show_url,location,date_span,bio,logo,"createdAt","updatedAt") VALUES(${name},${show_url},${location},${date_span},${bio},${logo},${createdAt},${updatedAt}) RETURNING id' , {
+//         name:festivalObj.name, 
+//         show_url:festivalObj.show_url, 
+//         location:festivalObj.location, 
+//         date_span:festivalObj.date_span, 
+//         genre: festivalObj.genre,
+//         bio:festivalObj.bio, 
+//         logo:festivalObj.logo, 
+//         createdAt:festivalObj.createdAt, 
+//         updatedAt:festivalObj.updatedAt
+//     });
+// }
 
 // let festivalObj = {
 //     name: "name",
@@ -77,13 +79,12 @@ festivals.findFestivalByField = (field_name, value) => {
     });
 }
 
-//id |     name      | show_url     | location |  date_span   | bio    |        logo    | genre | createdAt  |   updatedAt
+//id | name | show_url | full_location | city | state_region | lat_long | date_span | bio | logo | genre | twitter_url | insta_url | facebook_url | view_count | follower_count | createdAt | updatedAt 
+
 festivals.searchLikeFestivals = (query) => {
     query = "%" + query + "%";
     return db.many(`SELECT * FROM festivals WHERE 
     name ILIKE '${query}'
-    OR location ILIKE '${query}'
-    OR date_span ILIKE '${query}'
     OR genre ILIKE '${query}'`);
 }
 
@@ -91,7 +92,7 @@ festivals.searchLikeFestivals = (query) => {
 
 
 festivals.retrieveAllFestivals = () => {
-    return db.many('SELECT * FROM "festivals"');
+    return db.many('SELECT * FROM festivals');
 }
 
 // festivals.retrieveAllFestivals()
