@@ -43,8 +43,33 @@ app.use(bodyParser.urlencoded({ extended: false }))
 // parse application/json
 app.use(bodyParser.json())
 
-// const festivals = require('./db/helperFunctions/festivals');
+const festivals = require('./db/helperFunctions/festivals');
 
+let festivalObj = {
+  name: "name",
+  show_url:"url",
+  city:"city",
+  full_location: "full_location",
+  state_region:"state_region",
+  lat_long:"lat_long",
+  date_span:"date_span",
+  bio:"bio",
+  logo:"logo",
+  genre:"genre",
+  twitter_url:"twitter_url",
+  insta_url:"insta_url",
+  facebook_url:"facebook_url",
+  view_count:0,
+  follower_count: 0
+}
+
+festivals.addFestival(festivalObj)
+  .then((res) => {
+    console.log("added festival", res);
+  })
+  .catch((err) => {
+      console.log("Could not add festival", err);
+  })
 
 app.use('/', indexRouter);
 app.use('/search', searchRouter);
@@ -67,5 +92,3 @@ app.use(function(err, req, res, next) {
 });
 
 module.exports = app;
-
-
