@@ -39,7 +39,7 @@ Download dependencies
 
 Migrate the database model into postgres (this command must be run while terminal path is inside project)
 
-> sequelize db:migrate
+> node_modules/.bin/sequelize db:migrate
 
 Copy .env-example and rename it to .env
 
