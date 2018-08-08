@@ -8,7 +8,9 @@ var appSecret = process.env.APP_SECRET;
 const festivals = require('../db/helperFunctions/festivals');
 const artists = require('../db/helperFunctions/artists');
 const SpotifyStrategy = require('passport-spotify').Strategy;
-
+const request = require('request');
+const User = require('../server/models/user');
+console.log(User());
 
 // Passport session setup
 /* To support persistent login sessions, Passport needs to be able to serialize users into and deserialize
@@ -30,19 +32,44 @@ an accessToken, a refreshToken, expires_in, and a spotify profile), and invokes 
 passport.use(new SpotifyStrategy({
   clientID: appKey,
   clientSecret: appSecret,
-  callbackURL: "http://localhost:3000/auth/spotify/callback"
+  callbackURL: 'http://localhost:3000/auth/spotify/callback'
 },
-function(accessToken, refreshToken, expires_in, profile, done) {
+function(accessToken, refreshToken, profile, done) {
   // async verification wow cool
   process.nextTick(function () {
-  /* User.findOrCreate({ spotifyID: profile.id}), function (err, user) {
-    return done(err, user);
-  }); */
-  // The above code is how we'd want to do it once we get the database, again, but for now this just returns the whole 
-  // spotify profile. with the database, we want to associate the spotify profile with a user record and return that.
-    return done(null, profile);
-   });
+    console.log('Profile:', profile)
+
+    User.findOrCreate({
+      where: {
+        SpotifyId: profile.id
+      },
+      defaults: {
+        name: profile.displayName,
+        SpotifyId: profile.id,
+        accessToken: accessToken,
+        proPic: profile.photos[0],
+        refreshToken: refreshToken
+      }
+    })
+    .spread(function (user) {
+      console.log('MAKING USER: ', user)
+
+      done(null,user);
+    })
+    .catch(done);
+    //return done(null, profile);
+  });
 }));
+ 
+
+router.get('/apitest', function(req, res, next){  
+  // dumb api stuff
+  request('https://api.spotify.com/v1/users/1273494093', {json: true}, (err, res, body) => {
+    if (err) {return console.log(err); }
+    console.log(body.url);
+    console.log(body.explanation);
+  })
+});
 
 
 /* GET home page. */
@@ -72,6 +99,8 @@ router.get('/auth/spotify/callback',
       res.redirect('/');
 });
 
+
+
 // GET account page (WIP)
 router.get('/account', ensureAuthenticated, function(req, res){
   res.render('account.html', { user: req.user });
@@ -79,7 +108,7 @@ router.get('/account', ensureAuthenticated, function(req, res){
 
 router.get('/logout', function(req, res){
   req.logout();
-  req.redirect('/')
+  res.redirect('/')
 });
 
 router.get('/festival/:festivalID', function(req, res, next) {
@@ -136,7 +165,7 @@ function ensureAuthenticated(req, res, next){
   res.redirect('/');
 } 
 
-router.get('/artist', function (req,res, next) {
+router.get('/artist', function (req, res, next) {
   // var id = request.params.festivalID; 
   var artistAlbums = [
     'https://i.scdn.co/image/62225a86b462fca0a9f6a698fa6e4583f25bc0b7',
