@@ -46,7 +46,7 @@ app.use(bodyParser.json())
 const festivals = require('./db/helperFunctions/festivals');
 
 let festivalObj = {
-  name: "name",
+  name: "steve",
   show_url:"url",
   city:"city",
   full_location: "full_location",

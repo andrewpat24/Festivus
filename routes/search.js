@@ -9,7 +9,7 @@ router.get('/', function(req, res, next) {
   console.log('I AM IN THE GET REQUEST PLEASE SAVE MEEEE!!!!!');
   festivals.retrieveAllFestivals()
     .then((results) => {
-      // console.log(JSON.stringify(results));
+      console.log(JSON.stringify(results));
       
       res.render('search', {
         searchResults: results,
@@ -35,8 +35,6 @@ router.post('/', function(req, res, next) {
     .then((results) => {
       // console.log(JSON.stringify(results));
       
-    
-
       res.render('search', {
         title: 'Search',
         searchResults: results
