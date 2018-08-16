@@ -21,7 +21,7 @@ body {
   src: url("../fonts/bellota/Bellota-Light.otf") format("opentype");
 }
 @font-face {
-  font-family: dense;
+  font-family: Dense;
   src: url("../fonts/dense/Dense-Regular.otf") format("opentype");
 }
 nav.uk-navbar-container.top-nav.uk-navbar {
@@ -33,7 +33,7 @@ li a.navbar-item {
   color: white;
 }
 .uk-logo {
-  font-family: dense;
+  font-family: Dense;
   font-size: 3em;
   letter-spacing: 3px;
 }
