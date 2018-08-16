@@ -1,3 +1,8 @@
+# If you want to help contribute
+Currently seeking help with these roles: 
+* Product Development
+* User Experience Design
+
 ## SETUP PROCEDURE
 
 ### Setup postgres on your computer. 
@@ -34,7 +39,7 @@ Download dependencies
 
 Migrate the database model into postgres (this command must be run while terminal path is inside project)
 
-> sequelize db:migrate
+> node_modules/.bin/sequelize db:migrate
 
 Copy .env-example and rename it to .env
 
