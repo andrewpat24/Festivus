@@ -45,6 +45,10 @@ Copy .env-example and rename it to .env
 
 Only DB_URL is in use, so just make that one by changing the username and password text. 
 
+## Update server/config/config.json 
+
+Follow that path and update your username in the development environment
+
 ## Current design comps
 
 Thanks to our friend lukas, we have designs! 

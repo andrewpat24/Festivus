@@ -27,11 +27,13 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(lessMiddleware(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'public')));
+
 app.use(session({
    secret: 'keyboard cat',
    saveUnitialized: true,
    resave: true
 }));
+
 // Initialize passport! Also using passport.session() middleware, to support persistent login sessions
 app.use(passport.initialize());
 app.use(passport.session());
@@ -41,26 +43,33 @@ app.use(bodyParser.urlencoded({ extended: false }))
 // parse application/json
 app.use(bodyParser.json())
 
+const festivals = require('./db/helperFunctions/festivals');
 
-// festivals.searchLikeFestivals('Outside Lands San Francisco')
-//   .then(function (result, error) {
-//     console.log(result);
-//   });
+let festivalObj = {
+  name: "steve",
+  show_url:"url",
+  city:"city",
+  full_location: "full_location",
+  state_region:"state_region",
+  lat_long:"lat_long",
+  date_span:"date_span",
+  bio:"bio",
+  logo:"logo",
+  genre:"genre",
+  twitter_url:"twitter_url",
+  insta_url:"insta_url",
+  facebook_url:"facebook_url",
+  view_count:0,
+  follower_count: 0
+}
 
-// let festivalObj = {
-//   name: "Outside Lands",
-//   show_url:"https://www.sfoutsidelands.com/",
-//   location:"San Francisco, California",
-//   date_span:"August 10-12",
-//   genre: 'variety',
-//   bio: `The Outside Lands Music and Arts Festival is a music festival held annually in San Francisco, California, at Golden Gate Park. The first edition occurred from August 22 to 24, 2008.`,
-//   logo: "https://www.sfoutsidelands.com/uploads/outside-lands-2018-social-share-image.jpg"
-// }
-
-// festivals.addFestival(festivalObj)
-//   .then((res) => {
-//     console.log("added festival", res);
-//   })
+festivals.addFestival(festivalObj)
+  .then((res) => {
+    console.log("added festival", res);
+  })
+  .catch((err) => {
+      console.log("Could not add festival", err);
+  })
 
 app.use('/', indexRouter);
 app.use('/search', searchRouter);

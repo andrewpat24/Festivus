@@ -11,3 +11,9 @@ db.connect().then(function (obj) {
 });
 
 module.exports = db; 
+
+
+// sequelize model:generate --name festivals --attributes name:string,show_url:string,full_location:string,city:string,state_region:string,lat_long:string,date_span:string,bio:string,logo:string,genre:string,twitter_url:string,insta_url:string,facebook_url:string,view_count:integer,follower_count:integer
+// sequelize model:generate --name lineups --attributes artist_id:integer,festival_id:integer,showtime:string
+// sequelize model:generate --name artists --attributes name:string,spotify_profile:string,profile_picture:string,bio:string,genre:string,wiki_url:string,insta_url:string,facebook_url:string,twitter_url:string,view_count:integer,follower_count:integer
+// sequelize model:generate --name showtimes --attributes festival_id:integer,artist_id:integer,showtime_span:string

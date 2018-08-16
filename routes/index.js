@@ -121,6 +121,18 @@ router.get('/festival/:festivalID', function(req, res, next) {
         festivalLineup: festivalLineup
       });
 
+  })
+  .catch((err) => {
+    console.log(err); 
+    // TODO 
+    res.render('festival', {
+      festivalName: returnedFestival.name,
+      festivalProfilePicture: returnedFestival.logo,
+      festivalBio: returnedFestival.bio, 
+      festivalURL: returnedFestival.show_url,
+      festivalLineup: festivalLineup
+    });
+
   });
 });
 
