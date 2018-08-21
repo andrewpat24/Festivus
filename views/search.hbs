@@ -20,7 +20,7 @@
         <div class="uk-child-width-1-4@m" uk-grid>
 
             {{#each searchResults}}
-                <div onclick="redirectToFestivalPage({{{id}}})">
+                <div onclick="redirectToRouteWithId('festival',{{{id}}})">
                     <div class="uk-card uk-card-default">
                         <div class="uk-card-media-top">
                             <img src="https://getuikit.com/docs/images/light.jpg" alt="">
@@ -49,7 +49,7 @@
 </section>
 
 <script> 
-    function redirectToFestivalPage( id ) {
-        window.location.href = `/festival/${id}`;
+    function redirectToRouteWithId( route, id ) {
+        window.location.href = `/${route}/${id}`;
     }
 </script> 

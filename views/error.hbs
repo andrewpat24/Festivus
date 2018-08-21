@@ -1,3 +1,25 @@
-<h1>{{message}}</h1>
-<h2>{{error.status}}</h2>
-<pre>{{error.stack}}</pre>
+<div class="errorBody-container">
+    <div class="errorBody">
+
+        <div class="errorStatus-container">
+            <div class="errorStatus">
+                {{error.status}}
+            </div>
+        </div>
+
+        <div class="errorMessage-container">
+            <div class="errorMessage">
+                {{message}}
+            </div>
+        </div>
+
+        <div class="errorStack-container">
+            <div class="errorStack">
+                <pre>{{error.stack}}</pre>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
