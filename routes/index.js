@@ -88,7 +88,7 @@ router.get('/festival/:festivalID', function(req, res, next) {
         return [
           {
             artistName: "David Guetta",
-            artistProfilePicture: "https://i.scdn.co/image/62225a86b462fca0a9f6a698fa6e4583f25bc0b7",
+            artistProfilePicture: "https://i.scdn.co/image/f65af663cd7c12c4adb4e9029767537f2bb50ad1",
             artistFollowers: 2345342, 
             genre: "EDM"
           },
@@ -100,13 +100,13 @@ router.get('/festival/:festivalID', function(req, res, next) {
           },
           {
             artistName: "Mt Eden",
-            artistProfilePicture: "https://i.scdn.co/image/62225a86b462fca0a9f6a698fa6e4583f25bc0b7",
+            artistProfilePicture: "https://i.scdn.co/image/6f0354b3d536679363bfa891f975fa9b2683666f",
             artistFollowers: 2345, 
             genre: "EDM"
           },
           {
             artistName: "Bassnectar",
-            artistProfilePicture: "https://i.scdn.co/image/62225a86b462fca0a9f6a698fa6e4583f25bc0b7",
+            artistProfilePicture: "https://i.scdn.co/image/b2d54418b81eea1a53663d8c9b63336a9991a50e",
             artistFollowers: 234523, 
             genre: "EDM"
           }
@@ -115,7 +115,8 @@ router.get('/festival/:festivalID', function(req, res, next) {
       console.info(festivalLineup);
       res.render('festival', {
         festivalName: returnedFestival.name,
-        festivalProfilePicture: returnedFestival.logo,
+        // festivalProfilePicture: returnedFestival.logo,
+        festivalProfilePicture:'https://www.sfoutsidelands.com/uploads/ol18-outside-lands-logo-2018-large.png',
         festivalBio: returnedFestival.bio, 
         festivalURL: returnedFestival.show_url,
         festivalLineup: festivalLineup
