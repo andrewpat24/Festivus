@@ -7,6 +7,7 @@
     "initialize-tables": "sequelize db:migrate"
   },
   "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.18.3",
     "cookie-parser": "~1.4.3",
     "debug": "~2.6.9",
@@ -16,10 +17,11 @@
     "hbs": "~4.0.1",
     "http-errors": "~1.6.2",
     "less-middleware": "~2.2.1",
-    "morgan": "~1.9.0",
+    "morgan": "^1.9.1",
     "mysql2": "^1.5.3",
     "nodemon": "^1.17.5",
     "passport": "^0.4.0",
+    "passport-local": "^1.0.0",
     "passport-spotify": "^1.0.0",
     "pg": "^7.4.3",
     "pg-hstore": "^2.3.2",

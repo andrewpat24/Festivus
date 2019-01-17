@@ -1,17 +1,19 @@
 require("dotenv").config();
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var lessMiddleware = require('less-middleware');
-var logger = require('morgan');
-var passport = require('passport')
-var session = require('express-session');
+const createError = require('http-errors');
+const express = require('express');
+const path = require('path');
+const cookieParser = require('cookie-parser');
+const lessMiddleware = require('less-middleware');
+const logger = require('morgan');
+const passport = require('passport');
+const LocalStrategy = require('passport-local');
+const session = require('express-session');
 const bodyParser = require('body-parser');
 
-var indexRouter = require('./routes/index');
-var searchRouter = require('./routes/search');
-var usersRouter = require('./routes/users');
+
+const indexRouter = require('./routes/index');
+const searchRouter = require('./routes/search');
+const usersRouter = require('./routes/users');
 
 var app = express();
 
@@ -23,16 +25,17 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(session({ secret: process.env.AUTH_SECRET }))
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(lessMiddleware(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use(session({
-   secret: 'keyboard cat',
-   saveUnitialized: true,
-   resave: true
-}));
+// app.use(session({
+//    secret: 'keyboard cat',
+//    saveUnitialized: true,
+//    resave: true
+// }));
 
 // Initialize passport! Also using passport.session() middleware, to support persistent login sessions
 app.use(passport.initialize());
@@ -42,34 +45,6 @@ app.use(passport.session());
 app.use(bodyParser.urlencoded({ extended: false }))
 // parse application/json
 app.use(bodyParser.json())
-
-const festivals = require('./db/helperFunctions/festivals');
-
-let festivalObj = {
-  name: "steve",
-  show_url:"url",
-  city:"city",
-  full_location: "full_location",
-  state_region:"state_region",
-  lat_long:"lat_long",
-  date_span:"date_span",
-  bio:"bio",
-  logo:"logo",
-  genre:"genre",
-  twitter_url:"twitter_url",
-  insta_url:"insta_url",
-  facebook_url:"facebook_url",
-  view_count:0,
-  follower_count: 0
-}
-
-festivals.addFestival(festivalObj)
-  .then((res) => {
-    console.log("added festival", res);
-  })
-  .catch((err) => {
-      console.log("Could not add festival", err);
-  })
 
 app.use('/', indexRouter);
 app.use('/search', searchRouter);
