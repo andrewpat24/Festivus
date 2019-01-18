@@ -5,8 +5,7 @@ const db = pgp(process.env.DB_URL);
 db.connect().then(function (obj) {
   console.log("Connection to postgres db successful!")
   obj.done(); // success, release connection;
-})
-.catch(function (error) {
+}).catch(function (error) {
   console.log("ERROR:", error.message);
 });
 

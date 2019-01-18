@@ -1,71 +1,12 @@
 var express = require('express');
 var router = express.Router();
-var passport = require('passport');
-var SpotifyWebApi = require('spotify-web-api-node');
-var appKey = process.env.APP_KEY;
-var appSecret = process.env.APP_SECRET;
-
 const festivals = require('../db/helperFunctions/festivals');
 const artists = require('../db/helperFunctions/artists');
-const SpotifyStrategy = require('passport-spotify').Strategy;
-
-
-// Passport session setup
-/* To support persistent login sessions, Passport needs to be able to serialize users into and deserialize
-users out of the session. This will be as simple as storing the user ID when serializing, and finding the user by
-ID when deserializing. When we get a database hooked up, we need to serialize that only. For now, the entire spotify profile is 
-serialized. */
-passport.serializeUser(function(user, done) {
-  done(null, user);
-});
-
-passport.deserializeUser(function(obj, done) {
-  done(null, obj);
-});
-
-// Authentication strategy (WIP)
-/* Strategies in passport require a 'verify' function, which accepts credentials (in this case, it takes
-an accessToken, a refreshToken, expires_in, and a spotify profile), and invokes a callback with the user object
-*/
-passport.use(new SpotifyStrategy({
-  clientID: appKey,
-  clientSecret: appSecret,
-  callbackURL: "http://localhost:3000/auth/spotify/callback"
-},
-function(accessToken, refreshToken, expires_in, profile, done) {
-  // async verification wow cool
-  process.nextTick(function () {
-  /* User.findOrCreate({ spotifyID: profile.id}), function (err, user) {
-    return done(err, user);
-  }); */
-  // The above code is how we'd want to do it once we get the database, again, but for now this just returns the whole 
-  // spotify profile. with the database, we want to associate the spotify profile with a user record and return that.
-    return done(null, profile);
-   });
-}));
 
 
 /* GET home page. */
 router.get('/', function(req, res, next){
   res.render('index', { title: 'Home' });
-});
-
-// GET auth page. (WIP)
-router.get('/auth/spotify', 
-    passport.authenticate(
-      'spotify',
-      {scope: ['user-top-read', 'user-read-email', 'user-read-private'], showDialog: true}
-    ), 
-    function(req, res, next){
-    // The request will be rediredcted to spotify for authentication, so this function will not be called.
-});
-
-// GET auth callback page. (WIP)
-router.get('/auth/spotify/callback', 
-    passport.authenticate('spotify', { failureRedirect: '/index'}), 
-    function(req, res, next){ 
-      // Successful authentication, redirect home.
-      res.redirect('/');
 });
 
 // GET account page (WIP)

@@ -5,17 +5,17 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const lessMiddleware = require('less-middleware');
 const logger = require('morgan');
-const passport = require('passport');
-const LocalStrategy = require('passport-local');
 const session = require('express-session');
 const bodyParser = require('body-parser');
-
+const bcrypt = require('bcrypt-nodejs');
 
 const indexRouter = require('./routes/index');
 const searchRouter = require('./routes/search');
 const usersRouter = require('./routes/users');
+const accountRouter = require('./routes/account');
 
-var app = express();
+const app = express();
+const auth_secret = process.env.AUTH_SECRET;
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -25,21 +25,10 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(session({ secret: process.env.AUTH_SECRET }))
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(lessMiddleware(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'public')));
-
-// app.use(session({
-//    secret: 'keyboard cat',
-//    saveUnitialized: true,
-//    resave: true
-// }));
-
-// Initialize passport! Also using passport.session() middleware, to support persistent login sessions
-app.use(passport.initialize());
-app.use(passport.session());
 
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }))
@@ -49,6 +38,7 @@ app.use(bodyParser.json())
 app.use('/', indexRouter);
 app.use('/search', searchRouter);
 app.use('/users', usersRouter);
+app.use('/account', accountRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
