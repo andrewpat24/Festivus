@@ -43,18 +43,24 @@ router.post('/create-account', function(req, res, next) {
 
         let userObj = {
             username: req.body.username, 
-            password: req.body.password, 
+            
             email: req.body.email
         }
     
         console.log(userObj);
-    
-        users.addUser(userObj).then( (res) => {
-            console.log("user: ", res);
-        }).catch( (e) => {
-            console.log("err:", e.detail)
+
+        bcrypt.hash( req.body.password , saltRounds, (err, hash) => {
+
+            userObj["password"] = hash; 
+
+            users.addUser(userObj).then( (res) => {
+                console.log("user: ", res);
+            }).catch( (e) => {
+                console.log("err:", e.detail)
+            });
+            
         });
-    
+
         res.render('login', {title: 'Home'});
     }
 
