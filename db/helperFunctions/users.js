@@ -19,5 +19,17 @@ users.addUser = (userObj) => {
         });
 }
 
+users.getIDByUsername = (username) => {
+    return db.one('SELECT id FROM "users" WHERE "username" = $1', [username]);
+}
+
+users.getOBJByUsername = (username) => {
+    return db.one('SELECT * FROM "users" WHERE "username" = $1', [username]);
+}
+
+users.getByID = (id) => {
+    return db.one('SELECT * FROM "users" WHERE id = $1', [id]);
+}
+
 
 module.exports = users; 

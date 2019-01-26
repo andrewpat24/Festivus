@@ -5,7 +5,6 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const lessMiddleware = require('less-middleware');
 const logger = require('morgan');
-const session = require('express-session');
 const bodyParser = require('body-parser');
 const bcrypt = require('bcrypt-nodejs');
 const expressValidator = require('express-validator');
@@ -15,8 +14,12 @@ const searchRouter = require('./routes/search');
 const usersRouter = require('./routes/users');
 const accountRouter = require('./routes/account');
 
+//Authentication packages
+const session = require('express-session');
+const passport = require('passport');
+
 const app = express();
-const auth_secret = process.env.AUTH_SECRET;
+const sessionSecret = process.env.SE_SECRET;
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -31,6 +34,14 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use( expressValidator() );
 app.use(lessMiddleware(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'public')));
+
+app.use(session({
+  secret: sessionSecret,
+  resave: false,
+  saveUninitialized: false
+}))
+app.use(passport.initialize());
+app.use(passport.session());
 
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }))
