@@ -13,9 +13,26 @@
                             </div>
                         </div>
 
-                        <input class="uk-input credential-input credential-email" type="text" name="email" placeholder="email">
+                        {{#if errors}}
 
-                        <input class="uk-input credential-input credential-username" type="text" name="username" placeholder="username">
+                        <div class="uk-text-center error">
+                            <div class="error-message-container">
+
+                                <div class="error-message section-text">
+                                    {{#each errors}}
+                                        <div class="uk-alert-danger">
+                                            {{this.msg}}
+                                        </div>
+                                    {{/each}}
+                                </div>
+
+                            </div>
+                        </div>
+                        {{/if}}
+
+                        <input class="uk-input credential-input credential-email" type="text" name="email" placeholder="email" value="{{email}}">
+
+                        <input class="uk-input credential-input credential-username" type="text" name="username" placeholder="username" value="{{username}}">
 
                         <input class="uk-input credential-input credential-password" type="password" name="password" placeholder="password">
 

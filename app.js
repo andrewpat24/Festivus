@@ -8,6 +8,7 @@ const logger = require('morgan');
 const session = require('express-session');
 const bodyParser = require('body-parser');
 const bcrypt = require('bcrypt-nodejs');
+const expressValidator = require('express-validator');
 
 const indexRouter = require('./routes/index');
 const searchRouter = require('./routes/search');
@@ -27,6 +28,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
+app.use( expressValidator() );
 app.use(lessMiddleware(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'public')));
 
