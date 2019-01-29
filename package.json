@@ -10,6 +10,7 @@
     "bcrypt": "^3.0.3",
     "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.18.3",
+    "connect-session-sequelize": "^6.0.0",
     "cookie-parser": "~1.4.3",
     "debug": "~2.6.9",
     "dotenv": "^6.0.0",

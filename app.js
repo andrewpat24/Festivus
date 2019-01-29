@@ -6,7 +6,6 @@ const cookieParser = require('cookie-parser');
 const lessMiddleware = require('less-middleware');
 const logger = require('morgan');
 const bodyParser = require('body-parser');
-const bcrypt = require('bcrypt-nodejs');
 const expressValidator = require('express-validator');
 
 const indexRouter = require('./routes/index');
@@ -24,14 +23,16 @@ const sessionSecret = process.env.SE_SECRET;
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
-
 app.use(logger('dev'));
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 app.use( expressValidator() );
+
 app.use(lessMiddleware(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'public')));
 

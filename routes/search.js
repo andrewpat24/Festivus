@@ -6,7 +6,6 @@ const festivals = require('../db/helperFunctions/festivals');
 const artists = require('../db/helperFunctions/artists');
 
 router.get('/', function(req, res, next) {
-  console.log('I AM IN THE GET REQUEST PLEASE SAVE MEEEE!!!!!');
   festivals.retrieveAllFestivals()
     .then((results) => {
       console.log(JSON.stringify(results));
