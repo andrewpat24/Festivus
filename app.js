@@ -12,10 +12,14 @@ const indexRouter = require('./routes/index');
 const searchRouter = require('./routes/search');
 const usersRouter = require('./routes/users');
 const accountRouter = require('./routes/account');
+const pg = require('pg')
+
+
 
 //Authentication packages
 const session = require('express-session');
 const passport = require('passport');
+const pgSession = require('connect-pg-simple')(session);
 
 const app = express();
 const sessionSecret = process.env.SE_SECRET;
@@ -37,6 +41,10 @@ app.use(lessMiddleware(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(session({
+  store: new pgSession({
+    conString: process.env.DB_URL,
+    tableName : 'session'   
+  }),
   secret: sessionSecret,
   resave: false,
   saveUninitialized: false
