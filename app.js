@@ -62,7 +62,7 @@ passport.use(new LocalStrategy(
 
     users.getOBJByUsername(username).then( (userOBJ) => {
       console.log(userOBJ.username, userOBJ.password);
-      return done(null, 68);
+      return done(null, userOBJ.id);
     } ).catch( (error) => {
 
       console.log('user does not exist');

@@ -5,8 +5,13 @@ const festivals = require('../db/helperFunctions/festivals');
 
 /* GET home page. */
 router.get('/', function(req, res, next){
-  console.log( "User ID:", req.user.id );
-  console.log(req.isAuthenticated());
+  
+  try {
+    console.log( "User ID:", req.user.id );
+    console.log(req.isAuthenticated());
+  } catch (e) {
+    console.log( "Error:", e );
+  }
   res.render('index', { title: 'Home' });
 });
 
