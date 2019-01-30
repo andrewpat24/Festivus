@@ -1,12 +1,11 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const router = express.Router();
 const festivals = require('../db/helperFunctions/festivals');
-const artists = require('../db/helperFunctions/artists');
 
 
 /* GET home page. */
 router.get('/', function(req, res, next){
-  console.log(req.user);
+  console.log( "User ID:", req.user.id );
   console.log(req.isAuthenticated());
   res.render('index', { title: 'Home' });
 });
@@ -132,6 +131,5 @@ router.get('/artist/:artistId', function (req,res, next) {
 
   });
 })
-
 
 module.exports = router;

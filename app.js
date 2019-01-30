@@ -11,14 +11,17 @@ const expressValidator = require('express-validator');
 const indexRouter = require('./routes/index');
 const searchRouter = require('./routes/search');
 const usersRouter = require('./routes/users');
+
 const accountRouter = require('./routes/account');
-const pg = require('pg')
-
-
+const pg = require('pg');
+const users = require('./db/helperFunctions/users.js');
 
 //Authentication packages
 const session = require('express-session');
 const passport = require('passport');
+const LocalStrategy = require('passport-local').Strategy;
+const bcrypt = require('bcrypt');
+
 const pgSession = require('connect-pg-simple')(session);
 
 const app = express();
@@ -51,6 +54,37 @@ app.use(session({
 }))
 app.use(passport.initialize());
 app.use(passport.session());
+
+passport.serializeUser(function(user, done) {
+  done(null, user.id);
+});
+
+passport.deserializeUser(function(id, done) {
+  users.getByID(id).then( (userObject) => {
+      console.log(userObject);
+      done(null, userObject)
+  } ).catch( (e) => {
+      console.log(e)
+  }) ;
+});
+
+passport.use(new LocalStrategy(
+  function(username, password, done) {
+
+    console.log(username, password);
+
+    users.getOBJByUsername(username).then( (userOBJ) => {
+      console.log(userOBJ.username, userOBJ.password);
+      return done(null, 'text');
+    } ).catch( (error) => {
+
+      console.log('user does not exist');
+      console.log(error);
+      return done(null, false);
+
+    }); 
+  }
+));
 
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }))

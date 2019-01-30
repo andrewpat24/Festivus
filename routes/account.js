@@ -15,8 +15,13 @@ router.get('/login', function(req, res, next) {
     res.render('login', { title: 'Login' });
 });
 
+router.post('/login', passport.authenticate('local', {
+    successRedirect: '/account/profile', 
+    failureRedirect: '/account/login'
+}));
+
 router.get('/register', function(req, res, next) {
-    res.render('createAccount', {title: 'Register Account'});
+    res.render('register', {title: 'Register Account'});
 })
 
 router.post('/create-account', function(req, res, next) {
@@ -78,17 +83,32 @@ router.post('/create-account', function(req, res, next) {
     }
 });
 
+router.get('/profile', authenticationMiddleware(), function(req, res, next) {
+    res.render('profile', { title: 'profile' });
+});
+
 passport.serializeUser(function(user, done) {
     done(null, user.id);
   });
   
 passport.deserializeUser(function(id, done) {
+
     users.getByID(id).then( (userObject) => {
         console.log(userObject);
         done(null, userObject)
     } ).catch( (e) => {
         console.log(e)
-    }) ;
+    });
+
 });
+
+function authenticationMiddleware () {  
+	return (req, res, next) => {
+		console.log(`req.session.passport.user: ${JSON.stringify(req.session.passport)}`);
+
+	    if (req.isAuthenticated()) return next();
+	    res.redirect('/account/login')
+	}
+}
 
 module.exports = router; 
