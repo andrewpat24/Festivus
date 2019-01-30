@@ -88,14 +88,15 @@ router.get('/profile', authenticationMiddleware(), function(req, res, next) {
 });
 
 passport.serializeUser(function(user, done) {
-    done(null, user.id);
+    console.log(user);
+    done(null, user);
   });
   
 passport.deserializeUser(function(id, done) {
-
-    users.getByID(id).then( (userObject) => {
-        console.log(userObject);
-        done(null, userObject)
+    console.log(id);
+    users.getByID(id).then( (user) => {
+        console.log(user);
+        done(null, user)
     } ).catch( (e) => {
         console.log(e)
     });

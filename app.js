@@ -55,19 +55,6 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
-passport.serializeUser(function(user, done) {
-  done(null, user.id);
-});
-
-passport.deserializeUser(function(id, done) {
-  users.getByID(id).then( (userObject) => {
-      console.log(userObject);
-      done(null, userObject)
-  } ).catch( (e) => {
-      console.log(e)
-  }) ;
-});
-
 passport.use(new LocalStrategy(
   function(username, password, done) {
 
@@ -75,7 +62,7 @@ passport.use(new LocalStrategy(
 
     users.getOBJByUsername(username).then( (userOBJ) => {
       console.log(userOBJ.username, userOBJ.password);
-      return done(null, 'text');
+      return done(null, 68);
     } ).catch( (error) => {
 
       console.log('user does not exist');
