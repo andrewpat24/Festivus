@@ -20,7 +20,6 @@ const users = require('./db/helperFunctions/users.js');
 const session = require('express-session');
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
-const bcrypt = require('bcrypt');
 
 const pgSession = require('connect-pg-simple')(session);
 
@@ -54,6 +53,11 @@ app.use(session({
 }))
 app.use(passport.initialize());
 app.use(passport.session());
+
+app.use( function (req, res, next) {
+  res.locals.isAuthenticated = req.isAuthenticated(); 
+  next(); 
+}); 
 
 passport.use(new LocalStrategy(
   function(username, password, done) {

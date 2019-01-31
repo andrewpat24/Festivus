@@ -33,9 +33,18 @@
                 <li>
                   <a class="navbar-item" href="/search">Search</a>
                 </li>
+                {{#if isAuthenticated}}
                 <li>
-                  <a class="navbar-item" href="/auth/spotify">Link Spotify</a>
+                  <a class="navbar-item" href="/account/profile">Profile</a>
                 </li>
+                <li>
+                  <a class="navbar-item" href="/account/logout">Logout</a>
+                </li>
+                {{else}}
+                <li>
+                  <a class="navbar-item" href="/account/login">Login/Register</a>
+                </li>
+                {{/if}}
               </ul>
           </div>
       </nav>

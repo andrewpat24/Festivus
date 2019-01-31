@@ -20,6 +20,12 @@ router.post('/login', passport.authenticate('local', {
     failureRedirect: '/account/register'
 }));
 
+router.get('/logout', function(req, res, next) {
+    req.logout(); 
+    req.session.destroy(); 
+    res.redirect('/');
+});
+
 router.get('/register', function(req, res, next) {
     res.render('register', {title: 'Register Account'});
 })
@@ -84,7 +90,11 @@ router.post('/create-account', function(req, res, next) {
 });
 
 router.get('/profile', authenticationMiddleware(), function(req, res, next) {
-    res.render('profile', { title: 'profile' });
+    console.log(req);
+    res.render('profile', { 
+        title: 'profile', 
+        username: req.user.username
+    });
 });
 
 passport.serializeUser(function(user, done) {
