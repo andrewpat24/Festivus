@@ -44,7 +44,7 @@ router.post('/create-account', function(req, res, next) {
     if(errors) {
         console.log(`errors: ${JSON.stringify(errors)}`);
 
-        res.render('createAccount', {
+        res.render('register', {
             title: 'Register Account', 
             errors: errors, 
             email: req.body.email, 
@@ -67,8 +67,8 @@ router.post('/create-account', function(req, res, next) {
             users.addUser(userObj).then( (userObj) => {
                 console.log("user: ", userObj);
                 users.getIDByUsername(req.body.username).then( (userID) => {
-
-                    req.login(userID, () => {
+                    
+                    req.login(userID.id, () => {
                         res.redirect('/');
                     });
 
@@ -90,7 +90,7 @@ router.post('/create-account', function(req, res, next) {
 });
 
 router.get('/profile', authenticationMiddleware(), function(req, res, next) {
-    console.log(req);
+    
     res.render('profile', { 
         title: 'profile', 
         username: req.user.username
