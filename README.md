@@ -2,6 +2,7 @@
 Currently seeking help with these roles: 
 * Product Development
 * User Experience Design
+* Taking a look at the issues and throwing in a pr :) 
 
 ## SETUP PROCEDURE
 
