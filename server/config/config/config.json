@@ -14,7 +14,7 @@
     "dialect": "mysql"
   },
   "production": {
-    "username": "root",
+    "username": process.env.PGUSER || 'root',
     "password": null,
     "database": "database_production",
     "host": "127.0.0.1",
