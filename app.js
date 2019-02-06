@@ -44,7 +44,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(session({
   store: new pgSession({
-    conString: process.env.DB_URL,
+    conString: process.env.DATABASE_URL,
     tableName : 'session'   
   }),
   secret: sessionSecret,

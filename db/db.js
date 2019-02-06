@@ -1,5 +1,11 @@
 const pgp = require('pg-promise')(); 
-const db = pgp(process.env.DB_URL); 
+
+const DB_URL = process.env.DATABASE_URL; 
+if(process.env.HEROKU === "true") {
+  DB_URL += "?ssl=true"
+}
+
+const db = pgp(DB_URL); 
 
 db.connect().then(function (obj) {
   console.log("Connection to postgres db successful!")

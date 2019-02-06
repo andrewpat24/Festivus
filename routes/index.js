@@ -8,10 +8,11 @@ router.get('/', function(req, res, next){
   
   try {
     console.log( "User ID:", req.user.id );
-    console.log(req.isAuthenticated());
   } catch (e) {
     console.log( "Error:", e );
   }
+  console.log(req.isAuthenticated());
+  
   res.render('index', { title: 'Home' });
 });
 
