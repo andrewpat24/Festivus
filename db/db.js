@@ -1,8 +1,8 @@
 const pgp = require('pg-promise')(); 
 
-const DB_URL = process.env.DATABASE_URL; 
+let DB_URL = process.env.DATABASE_URL; 
 if(process.env.HEROKU === "true") {
-  DB_URL += "?ssl=true"
+  DB_URL += "?ssl=true";
 }
 
 const db = pgp(DB_URL); 
