@@ -4,7 +4,12 @@
   "private": true,
   "scripts": {
     "start": "nodemon node ./bin/www; lessc public/stylesheets/style.less public/stylesheets/style.css",
-    "initialize-tables": "sequelize db:migrate"
+    "initialize-tables": "sequelize db:migrate", 
+    "db:create:migration": "sequelize migration:generate --name ",
+    "db:migrate": "sequelize db:migrate",
+    "db:rollback": "sequelize db:migrate:undo",
+    "install:game": " sequelize db:create; sequelize db:migrate ; psql festivus < node_modules/connect-pg-simple/table.sql",
+    "postinstall": "sequelize db:migrate"
   },
   "dependencies": {
     "bcrypt": "^3.0.3",
